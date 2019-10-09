@@ -19,51 +19,59 @@ public class Panza extends JPanel {
 	}
 
 	@Override
-	public void paint(Graphics g) {
-		for (int i = 0; i < 5; i++) {
+	public void paint(Graphics g)
+	{
+		// Sine trenulete pana la gara
+		for (int i = 0; i < 5; i++) 
+		{
 			g.setColor(Color.black);
-			g.drawLine(15, 15 + i * 100, 500, 15 + i * 100);
+			g.drawLine(15, 15 + i * 100, 460, 15 + i * 100);
 
 			g.setColor(Color.black);
-			g.drawLine(15, 55 + i * 100, 500, 55 + i * 100);
+			g.drawLine(15, 55 + i * 100, 460, 55 + i * 100);
 		}
 		// Sine gara
 		g.setColor(Color.black);
-		g.drawLine(15, 215, 800, 215);
+		g.drawLine(15, 215, 1200, 215);
 
 		g.setColor(Color.black);
-		g.drawLine(15, 255, 800, 255);
+		g.drawLine(15, 255, 1200, 255);
 
+		// Gara
 		g.setColor(Color.GREEN);
-		g.fillRect(550, 150, 50, 50);
+		g.fillRect(540, 140, 60, 60);
 		g.setColor(Color.black);
 		g.drawString("G A R A", 550, 160);
+		
 		// Semafosr
 		// g.setColor(color);
 		g.drawRect(500, 150, 20, 30);
-		if (flag) {
+		if (flag)
+		{
 			g.setColor(Color.GREEN);
 			g.fillOval(500, 150, 20, 20);
-
-		} else {
+		}
+		else 
+		{
 			g.setColor(Color.RED);
 			g.fillOval(500, 160, 20, 20);
 		}
 
+		// Desen Trenulete
 		g.setColor(Color.GREEN);
-		g.fillRect(Principala.trenulete[0].getPozitie(), Principala.trenulete[0].getPozitieY(), 100, 50);
+		g.fillRect(Principala.trenulete[0].getPozitieX(), Principala.trenulete[0].getPozitieY(), 100, 50);
 
 		g.setColor(Color.YELLOW);
-		g.fillRect(Principala.trenulete[1].getPozitie(), Principala.trenulete[1].getPozitieY(), 100, 50);
+		g.fillRect(Principala.trenulete[1].getPozitieX(), Principala.trenulete[1].getPozitieY(), 100, 50);
 
 		g.setColor(Color.RED);
-		g.fillRect(Principala.trenulete[2].getPozitie(), Principala.trenulete[2].getPozitieY(), 100, 50);
+		g.fillRect(Principala.trenulete[2].getPozitieX(), Principala.trenulete[2].getPozitieY(), 100, 50);
 
 		g.setColor(Color.BLUE);
-		g.fillRect(Principala.trenulete[3].getPozitie(), Principala.trenulete[3].getPozitieY(), 100, 50);
+		g.fillRect(Principala.trenulete[3].getPozitieX(), Principala.trenulete[3].getPozitieY(), 100, 50);
 
 		g.setColor(Color.MAGENTA);
-		g.fillRect(Principala.trenulete[4].getPozitie(), Principala.trenulete[4].getPozitieY(), 100, 50);
+		g.fillRect(Principala.trenulete[4].getPozitieX(), Principala.trenulete[4].getPozitieY(), 100, 50);
 
 	}
 

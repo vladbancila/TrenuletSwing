@@ -11,7 +11,7 @@ public class Trenulet extends Thread {
 		return pozitieY;
 	}
 
-	private int pozitie = 10;
+	private int pozitieX = 10;
 	private int pozitieY;
 
 	// Panza am initializat-o din GUI
@@ -27,8 +27,8 @@ public class Trenulet extends Thread {
 		this.pozitieY = y;
 	}
 
-	public int getPozitie() {
-		return pozitie;
+	public int getPozitieX() {
+		return pozitieX;
 	}
 
 	@Override
@@ -44,13 +44,13 @@ public class Trenulet extends Thread {
 		// similar cu = (int)(Math.random(7)+1);
 		Graphics gr = Principala.gui.panza.getGraphics();
 
-		while (pozitie <= 350) {
+		while (pozitieX <= 350) {
 
 			try {
 
 				Thread.sleep(200); // doarme 1/2 secunde
 
-				pozitie += viteza * 2;
+				pozitieX += viteza;
 
 				Principala.gui.panza.stergeDesenul(gr);
 
@@ -66,9 +66,10 @@ public class Trenulet extends Thread {
 
 	public void intraInGara() {
 
-		synchronized (Gara.class) {
+		synchronized (Gara.class) 
+		{
 			Principala.gui.panza.seteazaSemafor(false);
-			pozitie = 500;
+			pozitieX = 500;
 			pozitieY = 210;
 			Graphics gr = Principala.gui.panza.getGraphics();
 
@@ -79,16 +80,16 @@ public class Trenulet extends Thread {
 			try {
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			while (pozitie <= 1000) {
+			
+			while (pozitieX <= 1000) {
 
 				try {
 
-					Thread.sleep(200); // doarme 1/2 secunde
+					Thread.sleep(200); // doarme 1/5 secunde
 
-					pozitie += 15;
+					pozitieX += 15;
 
 					Principala.gui.panza.stergeDesenul(gr);
 
@@ -103,12 +104,14 @@ public class Trenulet extends Thread {
 			
 			Principala.gui.panza.seteazaSemafor(true);
 			Principala.gui.panza.stergeDesenul(gr);
-
+			
+			//Stergere desen care reprezinta trenul plecat din statie !
+			gr.clearRect(pozitieX, pozitieY, 100, 50);
 			Principala.gui.panza.paint(gr);
+			
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
